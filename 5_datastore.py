@@ -17,7 +17,8 @@ room-number,use,sq-ft,price
 
 
 
-
+# Dictionary has 1 key (Medical). The value os "Medical" is a list of 5 dictionaries(Starts off with square brackets)
+# Use For loop to extract this information and put it intoo a csv file --> Very common in the real world. You'll get a JSON file and need to put it into a readable form
 datastore = { "medical":[
       { "room-number": 100,
         "use": "reception",
@@ -47,3 +48,18 @@ datastore = { "medical":[
 
       ]
 }
+
+outfile = open('retail_space.csv', 'w')
+outfile.write('room-number,use,sq-ft,price\n')
+
+list1 = datastore["medical"] # List1 represents dictionaries
+
+for dict in list1:
+  rn = dict['room-number']
+  use = dict['use']
+  sq = dict['sq-ft']
+  price = dict['price']
+
+  outfile.write(str(rn) + ',' + use + ',' + str(sq) + ',' + str(price) + '\n')
+
+outfile.close()

@@ -3,7 +3,7 @@ We have a dictionary of produce with their per unit cost, the number of units so
 since it was manually entered. Print out the details of any produce that has in inaccurate total. Print both the stated total from the dictionary
 as well as the calculated total that shows the discrepancy.
 '''
-
+# The keys are just string values. The value of the key is a dictionary.
 ProduceDictionary={
     'Potatoes': {
         'cost': 0.86,
@@ -48,7 +48,7 @@ ProduceDictionary={
     'Celery': {
         'cost': 3.07,
         'amt_sold': 18.5,
-        'total': 56.8
+        'total': 56.79
     },
     'Spinach': {
         'cost': 4.12,
@@ -193,7 +193,7 @@ ProduceDictionary={
     'Brussels sprouts': {
         'cost': 1.65,
         'amt_sold': 22.9,
-        'total': 37.79
+        'total': 37.78
     },
     'Kale': {
         'cost': 5.02,
@@ -207,3 +207,28 @@ ProduceDictionary={
     }
 }
 
+
+#My attempt
+#for key in ProduceDictionary:
+   # if ProduceDictionary[key]["total"] in ProduceDictionary != ["cost"] * ["amt_sold"]:
+      #  print(key, ["cost"] * ["amt_sold"], ["total"])
+      #  name = print('Produce Name:', ProduceDictionary[key][])
+      #  calc_total = print('Calculated Total:', dict['total'])
+      #  stated_total = print('Stated Total:', ProduceDictionary[key]['cost'] * dict['amt_sold'])
+
+
+#Correct way from Professor B
+for produce in ProduceDictionary:
+    cost = ProduceDictionary[produce]['cost']
+    amt_sold = ProduceDictionary[produce]['amt_sold']
+    stated_total = ProduceDictionary[produce]['total']
+    calc_total = round(cost * amt_sold, 2)
+
+    if calc_total != stated_total:
+        print(f"Produce Name: {produce}")
+        print(f"Calculated Total: ${calc_total:,.2f}")
+        print(f"Stated Total: ${stated_total:,.2f}")
+        print()
+        print()
+
+#How do you get listed dictionary at the top to look organized and readable rather than how it is right now?
