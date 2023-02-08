@@ -38,3 +38,4 @@ for school in schools:
             print(f"Graduation rate for Women: {school['Graduation rate  women (DRVGR2020)']}")
             print()
             print()
+
