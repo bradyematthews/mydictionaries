@@ -60,47 +60,76 @@ print()
       #print(f"Magnitude: {earthquake['mag']}")
       #print(f"Longitude: {earthquake['cordinates']}") # 'cordinates(0)
       #print(f"Latitude: {earthquake['cordinates']}") # cordinates(1)
+
+a = 1
+eq_dict = {}
+
+
 print("2)")
 print()
-
+#Test Run
+#for earthquake in earthquakes["features"]:
+   #if earthquake["properties"]["mag"] > 6:
+      #eq_dict = {
+      #((earthquake["properties"]["place"])): {
+      #"Magnitude:", ((earthquake["properties"]["mag"])), 
+      #"Longitude:", ((earthquake["geometry"]["coordinates"][0])),
+      #"Latitude:", ((earthquake["geometry"]["coordinates"][1]))}
+      #}
+      
+      #print(eq_dict)
+#Original
 for earthquake in earthquakes["features"]:
    if earthquake["properties"]["mag"] > 6:
-      eq_dict = {}
-      eq_dict["Location"] = earthquake["properties"]["place"]
-      eq_dict["Magnitude"] = earthquake["properties"]["mag"]
-      eq_dict["Longitude"] = earthquake["geometry"]["coordinates"][0]
-      eq_dict["Latitude"] = earthquake["geometry"]["coordinates"][1]
-      print(eq_dict)
-      print()
-      
-   # Use this for Part 3.
-      #print("Location:", eq_dict["Location"])
-      #print("Magnitude", eq_dict["Magnitude"])
-      #print("Longitude", eq_dict["Longitude"])
-      #print("Latitude", eq_dict["Latitude"])
-      #print()
 
+      eq_dict[a] = [
+         earthquake["properties"]["place"],
+         earthquake["properties"]["mag"],
+         earthquake["geometry"]["coordinates"][0],
+         earthquake["geometry"]["coordinates"][1],
+      ]
 
+      a += 1
+
+print(eq_dict)
 
 # 3) Using the eq_dictionary, print out the information as shown below (first three shown):
 print()
 print("3)")
 print()
-for earthquake in earthquakes["features"]:
-   if earthquake["properties"]["mag"] > 6:
-      eq_dict = {}
-      eq_dict["Location"] = earthquake["properties"]["place"]
-      eq_dict["Magnitude"] = earthquake["properties"]["mag"]
-      eq_dict["Longitude"] = earthquake["geometry"]["coordinates"][0]
-      eq_dict["Latitude"] = earthquake["geometry"]["coordinates"][1]
-      
-      print()
-      print("Location:", eq_dict["Location"])
-      print("Magnitude:", eq_dict["Magnitude"])
-      print("Longitude:", eq_dict["Longitude"])
-      print("Latitude:", eq_dict["Latitude"])
-      print()
 
+list1 = [1, 2, 3, 4, 5, 6, 7, 8]
 
+for element in list1:
+   print("Location:", eq_dict[element][0])
+   print("Magnitude:", eq_dict[element][1])
+   print("Longitude:", eq_dict[element][2])
+   print("Latitude:", eq_dict[element][3])
+   print()
 
+"""
+# Notes in class
+person = {}
 
+person[f'name'] = 'John'
+person[f'name'] = 'Jack'
+
+print(person)
+# Only prints last line when you run this. Jack replaced John because the key is the same.
+
+eqdata = {}
+
+eqdata['location'] = 'Chile'
+eqdata['location'] = 'Texas'
+
+print(eqdata)
+# This does the same thing.
+
+eqdata = {}
+for earthquake in list_of_eqs:
+   location = eq['location']
+   eqdata[eq[location]] = {'mag': ___, 'lat':___, 'lon':___}
+# EQ[loaction] will give you Chile. Don't hardcode location in the new dictionary. 
+print(eqdata)
+
+"""

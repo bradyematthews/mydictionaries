@@ -28,7 +28,7 @@ conference_schools = [372,108,107,130]
 print(type(schools))
 
 # How many schools are in this file?
-print(len(schools)) #649
+print(len(schools)) # Should come out to = 649
 
 
 for school in schools:
